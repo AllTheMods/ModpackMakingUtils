@@ -35,17 +35,8 @@ namespace RecipeReplacerMT
                 if (true)
                 {
                     Console.WriteLine("Insert Filepath to your minetweaker.log");
-
                     filepath = Console.ReadLine();
-                    if (filepath.Last() == '"')
-                    {
-                        filepath = filepath.Remove(filepath.Length - 1, 1);
-                    }
 
-                    if (filepath.First() == '"')
-                    {
-                        filepath = filepath.Remove(0, 1);
-                    }
                 }
 
                 // gets all recipes that gotta be changed
@@ -82,6 +73,30 @@ namespace RecipeReplacerMT
 
 
             Console.ReadLine();
+        }
+
+        // changes the filepath to work
+        static string parseFilePath(string s)
+        {
+
+            if (s.Last() == '"')
+            {
+                s = s.Remove(s.Length - 1, 1);
+            }
+
+            if (s.First() == '"')
+            {
+                s = s.Remove(0, 1);
+            }
+
+            s = s.Replace('/', '\\');
+            if (s.StartsWith("."))
+            {
+                s = s.Remove(0, 1);
+                s = Environment.CurrentDirectory + s;
+            }
+
+            return s;
         }
 
         // reads all recipes from the file
