@@ -23,22 +23,7 @@ namespace RecipeReplacerMT
         {
             string filepath = @"C:\Users\jonas\Documents\Minecraft\Instances\All the Mods (1)\minetweaker.log";
 
-            // enabled path input
-            if (true)
-            {
-                Console.WriteLine("Insert Filepath");
 
-                filepath = Console.ReadLine();
-                if (filepath.Last() == '"')
-                {
-                    filepath = filepath.Remove(filepath.Length - 1, 1);
-                }
-
-                if (filepath.First() == '"')
-                {
-                    filepath = filepath.Remove(0, 1);
-                }
-            }
 
             readRecipesFromFile(filepath);
             initReplaceList();
@@ -46,24 +31,51 @@ namespace RecipeReplacerMT
             // only runs when there really is something to do
             if (replaceList.Count > 0)
             {
+                // enabled path input
+                if (true)
+                {
+                    Console.WriteLine("Insert Filepath to your minetweaker.log");
+
+                    filepath = Console.ReadLine();
+                    if (filepath.Last() == '"')
+                    {
+                        filepath = filepath.Remove(filepath.Length - 1, 1);
+                    }
+
+                    if (filepath.First() == '"')
+                    {
+                        filepath = filepath.Remove(0, 1);
+                    }
+                }
+
                 // gets all recipes that gotta be changed
                 List<string> RecipesToChange = searchRecipesToChange();
-                Console.WriteLine("\nNormal Recipes: ");
-                printRecipes(RecipesToChange);
+                
+                // same as above, check if there is something to do
+                if (RecipesToChange.Count < 1)
+                {
+                    Console.WriteLine("There is no recipe to replace, make sure you ran \"/mt recipes\" beforehand!");
+                } else
+                {
+                    Console.WriteLine("\nNormal Recipes: ");
+                    printRecipes(RecipesToChange);
 
-                // gets the recipes changed and printed
-                Console.WriteLine("\nChanged Recipes:");
-                List<string> ChangedRecipes = changeRecipes(RecipesToChange);
-                printRecipes(ChangedRecipes);
+                    // gets the recipes changed and printed
+                    Console.WriteLine("\nChanged Recipes:");
+                    List<string> ChangedRecipes = changeRecipes(RecipesToChange);
+                    printRecipes(ChangedRecipes);
 
-                // gets all the removed recipes
-                List<string> RemovedRecipes = createRemoveRecipes(RecipesToChange, ref ChangedRecipes);
+                    // gets all the removed recipes
+                    List<string> RemovedRecipes = createRemoveRecipes(RecipesToChange, ref ChangedRecipes);
 
-                //fixed both lists
-                fixList(ref RemovedRecipes);
-                fixList(ref ChangedRecipes);
+                    //fixed both lists
+                    fixList(ref RemovedRecipes);
+                    fixList(ref ChangedRecipes);
 
-                writeToFile("test.zs", RemovedRecipes, ChangedRecipes);
+                    writeToFile("outputRecipes.zs", RemovedRecipes, ChangedRecipes);
+                }
+
+
             }
 
 
