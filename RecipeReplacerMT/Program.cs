@@ -21,11 +21,10 @@ namespace RecipeReplacerMT
 
         static void Main(string[] args)
         {
-            string filepath = @"C:\Users\jonas\Documents\Minecraft\Instances\All the Mods (1)\minetweaker.log";
+            string filepath = @"C:\Users\jonas\Documents\Minecraft\Instances\All the Mods\minetweaker.log";
 
 
 
-            readRecipesFromFile(filepath);
             initReplaceList();
             
             // only runs when there really is something to do
@@ -38,6 +37,9 @@ namespace RecipeReplacerMT
                     filepath = Console.ReadLine();
 
                 }
+
+                readRecipesFromFile(parseFilePath(filepath));
+
 
                 // gets all recipes that gotta be changed
                 List<string> RecipesToChange = searchRecipesToChange();
@@ -192,7 +194,7 @@ namespace RecipeReplacerMT
                     while ((line = file.ReadLine()) != null)
                     {
                         // only takes the actual recipes
-                        if (!line.StartsWith("#"))
+                        if (!(line.Length == 0 || line.StartsWith("#")))
                         {
                             string[] split = line.Split('>');
                             replaceList.Add(new replaceWithStruct("<" + split[0].Trim() + ">", "<" + split[1].Trim() + ">" ));
