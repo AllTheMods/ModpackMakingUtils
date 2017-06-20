@@ -1,0 +1,49 @@
+{
+   "allthepacks":{
+      "name":"All The Mods Team",
+      "links":{
+         "website":"http://allthepacks.com/",
+         "discord":"https://discord.gg/FdFDVWb",
+         "hostpartner":"http://www.akliz.net/allthemods",
+         "patreon":"https://www.patreon.com/user?u=4676350"
+      },
+      "image":"http://allthepacks.com/wp-content/uploads/2017/01/g0h9qeC.png",
+      "description":"All The Mods is an ever-evolving, frequently updated and diverse part of the modded minecraft community. The original “allthemods” pack started out as a simple modpack meant for a few close friends but quickly generated interest outside of the closed player group. It continued to gain popularity and eventually became one of the goto “kitchen sink” modpack on curse. Frequent updates, attention to detail (i.e. bugs/problems addressed quickly), and the inclusion of new/emerging mods only helped increase the momentum of the pack's popularity. In late 2016 the brand started expanding to include themed modpacks as well with Expert and Skyblock packs. Today, the brand exists as several modpacks with a number of developers volunteering to develop, test and moderate Curse, Discord and the testing servers.",
+      "members":[
+         "Ordinator",
+         "Ozhound",
+         "whatthedrunk",
+         "al132",
+         "ImBoomflex",
+         "BloodWorkXGaming",
+         "PotDucky",
+         "Dijkstra"
+      ],
+      "modpacks":[
+         {
+            "id":"atm1",
+            "name":"All The Mods 1",
+            "packversion":"2.57",
+            "modloader":{
+               "name":"forge",
+               "version":"12.18.3.2316"
+            },
+            "description":"",
+            "owner":"PotDucky / BloodWorkXGaming",
+            "links":{
+               "curse":"https://minecraft.curseforge.com/projects/all-the-mods",
+               "tehcnic":"https://www.technicpack.net/modpack/all-the-mods-full-official.1015285",
+               "main":"http://allthepacks.com/all-the-mods/"
+            },
+            "logo":"http://allthepacks.com/wp-content/uploads/2017/01/Abyus4d.png",
+            "mcversion":"1.10.2",
+            "server":{
+			   "serverjar" : "forge-1.10.2-12.18.3.2316-universal.jar",
+               "download":"https://minecraft.curseforge.com/projects/all-the-mods/files/2431157/download",
+               "installerbash":"ServerStart.sh",
+               "installerwin":"ServerStart.bat"
+            }
+         }
+      ]
+   }
+}
