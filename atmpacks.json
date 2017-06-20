@@ -38,7 +38,7 @@
             "logo":"http://allthepacks.com/wp-content/uploads/2017/01/Abyus4d.png",
             "mcversion":"1.10.2",
             "server":{
-			   "serverjar" : "forge-1.10.2-12.18.3.2316-universal.jar",
+               "serverjar" : "forge-1.10.2-12.18.3.2316-universal.jar",
                "download":"https://minecraft.curseforge.com/projects/all-the-mods/files/2431157/download",
                "installerbash":"ServerStart.sh",
                "installerwin":"ServerStart.bat"
